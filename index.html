@@ -1,0 +1,114 @@
+<!DOCUMENT html>
+
+<html>
+    <head>
+        <title>Social media page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <style>
+    
+                div, img, input {
+                    float: left;
+                    transition: box-shadow 0.2s linear;
+                }
+
+                div:hover, img:hover, input:hover {
+                    box-shadow: 0 0 2vw gray;
+                }
+            
+                #banner{
+                    width: 50%;
+                    margin-left: 25%;
+                    margin-right: 25%;
+                    border-radius: 2vw;
+                    font-size: 3vw;
+                    line-height: 5vw;
+                    text-align: center;
+                    font-family: FreeMono;
+                    background-color: #8833cd;
+                    color: white;
+                }
+            
+                img {
+                    width: 50%;
+                    margin-left: 25%;
+                    margin-right: 25%;
+                    margin-top: 3vh;
+                    border-radius: 2vw;
+                }
+                
+
+
+                #comment_input {
+                    width: 50%;
+                    padding-left: 2%;
+                    margin-left: 25%;
+                    margin-right: 25%;
+                    margin-top: 3vh;
+                    background-color: rgba(205, 205, 202, 0.32);
+                    height: 5vh;
+                    line-height: 5vh;
+                    font-size: 1.5vw;
+                    border-radius: 2vw;
+                }
+
+
+                #myWall {
+                    width: 50%;
+                    margin-left: 25%;
+                    margin-right: 25%;
+                    border: 1px solid black;
+                    border-radius: 2vw;
+                    margin-top: 2vw;
+                    min-height: 3vw;
+                    padding-bottom: 2%;
+                }
+
+                .comment {
+                    width: 90%;
+                    margin-top: 2%;
+                    margin-left: 5;
+                    text-align: center;
+                    font-style: italic;
+                    font-size: 1.2vw;
+                }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="banner">
+            SoMeLight
+        </div>
+
+        <img src="https://cdn.pixabay.com/photo/2015/11/02/18/34/banner-1018818_960_720.jpg">
+
+        <input id="comment_input" placeholder="Type your comment here">
+
+        <div id="myWall">
+        </div>
+
+    </body>
+
+    <script>
+
+        var c = 1;
+
+        //Add enter listener
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                if($("#comment_input").val != ""){
+                    $("#myWall").prepend("<div class='comment'> Besked# " + c + ": "  + $("#comment_input").val() + "</div>");
+                    $("#comment_input").val("");
+                    c++;
+                }
+                else{
+                    alert("You need to enter som input");
+                }
+
+            }
+        });
+
+    </script>
+</html>
